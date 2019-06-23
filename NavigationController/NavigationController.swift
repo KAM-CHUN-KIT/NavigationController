@@ -76,14 +76,6 @@ open class NavigationController: UINavigationController {
         backgroundColorView?.backgroundColor = color
     }
     
-    private func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if self.navigationBarVisibility == .hidden {
-            return .lightContent;
-        } else {
-            return .default;
-        }
-    }
-    
     func updateNavigationBarVisibilityForController(viewController: UIViewController, animated: Bool) {
         self.navigationBarVisibility  = .system
         
@@ -92,7 +84,6 @@ open class NavigationController: UINavigationController {
         }
         
         self.setNavigationBarVisibility(navigationBarVisibility: self.navigationBarVisibility)
-        UIApplication.shared.statusBarStyle = self.preferredStatusBarStyle()
     }
     
     private func applyNavigationBarAlpha(_ alpha: CGFloat) {
