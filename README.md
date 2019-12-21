@@ -1,6 +1,6 @@
 # NavigationController
 
-A customizable navigation bar library with dynamic colors and alphas for Swift.
+It's not easy to do fancy effect to the navigation bar on iOS. KNavigationController library will provide you a customizable UINavigationController with dynamic colors and alphas for Swift.
 
 ## Preview
 <img src="Screenshot/ezgif-4-5f6158efdb50.gif" width=350/>
@@ -13,14 +13,14 @@ import KNavigationController
 class YourNavigationController: NavigationController {
 ```
 
-Simply assign the navigation bar color:
+Simply set the navigation bar color as your theme color:
 ```
 if let nav = self.navigationController as? NavigationController {
     nav.setBackgroundColor(UIColor.white)
 }
 ```
 
-You may adjust the navigation bar's alpha according to scrollView offset
+You may adjust the navigation bar's alpha to do the show and hidden effects when scrolling News feed
 ```
 if let nav = self.navigationController as? NavigationController {
     nav.setNavigationBarVisibility(offset: offset)
