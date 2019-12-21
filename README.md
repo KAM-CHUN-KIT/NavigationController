@@ -6,7 +6,7 @@ A customizable navigation bar library with dynamic colors and alphas for Swift.
 <img src="Screenshot/ezgif-4-5f6158efdb50.gif" width=350/>
 
 ## Setup
-You need to inherit the library from KPageViewController:
+You need to inherit the library from KNavigationController:
 ```
 import KNavigationController
 
