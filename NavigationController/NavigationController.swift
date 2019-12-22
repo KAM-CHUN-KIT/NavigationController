@@ -21,8 +21,8 @@ public enum FadeNavigationControllerNavigationBarVisibility: Int {
 
 open class NavigationController: UINavigationController {
 
-    var navigationBarVisibility: FadeNavigationControllerNavigationBarVisibility = .undefined
-    var preferredNavigationBarVisibility: FadeNavigationControllerNavigationBarVisibility = .undefined
+    private var navigationBarVisibility: FadeNavigationControllerNavigationBarVisibility = .undefined
+    private var preferredNavigationBarVisibility: FadeNavigationControllerNavigationBarVisibility = .undefined
     private var backgroundColorView: UIView?
     
     override open func viewDidLoad() {
@@ -30,27 +30,6 @@ open class NavigationController: UINavigationController {
         self.delegate = self
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.setBackgroundColor(.white) //default white color
-    }
-    
-    func refreshNavigationBar() {
-        self.setNavigationBarVisibility(navigationBarVisibility: navigationBarVisibility)
-    }
-    
-    func setNavigationBarVisibility(navigationBarVisibility: FadeNavigationControllerNavigationBarVisibility) {
-        guard navigationBarVisibility != .undefined else {
-            return
-        }
-        
-        var alpha: CGFloat = 1.0
-        if navigationBarVisibility == .hidden {
-            alpha = 0.0
-            self.navigationBar.shadowImage = UIImage()
-        } else {
-            alpha = 1.0
-            self.navigationBar.shadowImage = UINavigationBar.appearance().shadowImage
-        }
-
-        self.applyNavigationBarAlpha(alpha)
     }
     
     open func setNavigationBarVisibility(offset: CGFloat) {
@@ -76,7 +55,28 @@ open class NavigationController: UINavigationController {
         backgroundColorView?.backgroundColor = color
     }
     
-    func updateNavigationBarVisibilityForController(viewController: UIViewController, animated: Bool) {
+    private func refreshNavigationBar() {
+        self.setNavigationBarVisibility(navigationBarVisibility: navigationBarVisibility)
+    }
+    
+    private func setNavigationBarVisibility(navigationBarVisibility: FadeNavigationControllerNavigationBarVisibility) {
+        guard navigationBarVisibility != .undefined else {
+            return
+        }
+        
+        var alpha: CGFloat = 1.0
+        if navigationBarVisibility == .hidden {
+            alpha = 0.0
+            self.navigationBar.shadowImage = UIImage()
+        } else {
+            alpha = 1.0
+            self.navigationBar.shadowImage = UINavigationBar.appearance().shadowImage
+        }
+
+        self.applyNavigationBarAlpha(alpha)
+    }
+    
+    private func updateNavigationBarVisibilityForController(viewController: UIViewController, animated: Bool) {
         self.navigationBarVisibility  = .system
         
         if let navigationBarVisibility = (viewController as? NavigationControllerDelegate)?.preferredNavigationBarVisibility() {
