@@ -16,7 +16,7 @@ class YourNavigationController: NavigationController {
 Simply set the navigation bar color as your theme color:
 ```
 if let nav = self.navigationController as? NavigationController {
-    nav.setBackgroundColor(UIColor.white)
+    nav.setBackgroundColor(UIColor.gray)
 }
 ```
 
