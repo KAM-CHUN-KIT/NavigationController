@@ -3,7 +3,7 @@
 It's not easy to do fancy effect to the navigation bar on iOS. KNavigationController library will provide you a customizable UINavigationController with dynamic colors and alphas for Swift.
 
 ## Preview
-<img src="Screenshot/ezgif-4-5f6158efdb50.gif" width=350/>
+<img src="Screenshot/ezgif-4-5e2c8f2d559b.gif" width=350/>
 
 ## Setup
 You need to inherit the library from KNavigationController:
